@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todom</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-    <div class="container">
-        <h1>TODOM</h1>
-        <h2>ToDo List</h2>
-        <div class="todo-list" id='todo-list'>
-            <div class="todo-item">
-                <input type="text" name="todo-input" id="todo-input" placeholder="Enter a ToDo .." />
-                <i class="fas fa-plus-square" id="todo-add"></i>
-            </div>    
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+      integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="app">
+      <h1>TODOM</h1>
+      <h2>ToDo List</h2>
+      <form>
+        <input placeholder="Enter a ToDo..." />
+        <button class="add-todo"><i class="fas fa-plus-square"></i></button>
+      </form>
+      <ul class="todos">
+        <!-- <li class="todo">
+          <span class="todo-text">Text from input</span>
+          <i class="fas fa-square"></i>
+          <i class="fas fa-trash"></i>
+        </li> -->
+      </ul>
     </div>
-    <script src="script.js"></script>
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>

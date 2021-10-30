@@ -1,87 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
-
-html {  
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    --color-primary: #ffffff;
-    --color-secondary: #f4f4f4;
-    --color-tertiary: #5f9ea0;
-    --color-quaternary: #5050ff;
-    --color-quinary: #ff5050;
+body {
+  background: linear-gradient(18deg, rgb(17, 200, 220), rgb(90, 67, 121));
+  min-height: 100vh;
+  padding: 32px 0 16px; /*top (right & left) bottom*/
 }
-
-.container {
-    background: linear-gradient(18deg, rgb(17, 200, 220), rgb(90, 67, 121));
-    height: 100vh;
-    text-align: center;
+.app {
+  max-width: 280px;
+  margin: 0 auto;
 }
-
 h1 {
-    padding-top: 3.3rem;
-    font-size: 3.6rem;
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 32px;
+  color: #fff;
 }
-
 h2 {
-    padding-top: 3.3rem;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    font-weight: 400;
-    font-family: 'Ubuntu';
+  color: #f4f4f4;
+  margin: 16px 0;
+  text-align: center;
 }
-
-h1 , h2 {
-    color: var(--color-primary);
+form {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;  
+  align-items: center;
+  justify-content: space-between;
 }
-
-i {
-    padding-right: 0.5rem;
-    font-size: 1.5rem;
-    cursor: pointer;
+button,
+input {
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
 }
-
-i.fas.fa-plus-square:hover {
-    color: var(--color-quaternary);
+input {
+  outline: none;
 }
-
-i.fas.fa-trash:hover {
-    color: var(--color-quinary)
+li.todo {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  background-color: #f4f4f4;
+  border-radius: 8px;
 }
-
-i.fas.fa-check-square{
-    color: var(--color-tertiary);
+.todo span {
+  padding: 8px;
+  background-color: transparent;
+  border-radius: 8px;
 }
-
-.todo-list{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 30rem;
-    margin: 0 auto;
+.todo .todo-text {
+  flex: 1;
+  overflow-wrap: anywhere;
 }
-
-.todo-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--color-secondary);
-    width: 90%;
-    border: 1px solid var(--color-secondary);
-    border-radius: 5px;
-    margin: 0.25rem 0;
+.todo i {
+  margin-right: 8px;
 }
-
-#todo-input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 2px solid transparent;
-    background-color: var(--color-secondary);
-    font-size: 1.6rem;
-    outline: none;
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: 500;
+button, .todo i {
+  cursor: pointer;
+}
+.fa-check-square, .fa-square {
+    color: cadetblue;
+}
+.add-todo:hover {
+  color: #5050ff;
+}
+.fa-trash:hover {
+  color: #ff5050;
+}
+.completed {
+  opacity: 0.6;
+}
+.completed .todo-text {
+  text-decoration: line-through;
 }

@@ -1,46 +1,63 @@
-const addTodoButton = document.getElementById('todo-add');    
-// We retrieve the element on which we want to detect the click
-addTodoButton.addEventListener('click', function( event ) { 
-// We listen to the click event
-    let target = event.target
-    console.log({target})
+const selectedInput = document.querySelector("input");
+const addTodoBtn = document.querySelector(".add-todo");
+const todos = document.querySelector(".todos");
 
-    let todoItemsCollection = document.getElementsByClassName('todo-item')
-    let todoItems = Array.from( todoItemsCollection )
+selectedInput.focus()
 
-    let newTodoItem = document.createElement('div')
-    newTodoItem.classList.add('todo-item')
+ 
+addTodoBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  const text = selectedInput.value.trim();
+  if (!text) return;
+  addTodo(text);
+});
 
-    let newTodoInput = document.createElement('input')
-    newTodoInput.setAttribute('type', 'text')
-    newTodoInput.setAttribute('name', 'todo-input')
-    newTodoInput.setAttribute('id', 'todo-input')
-    let arr = Array.from( event.target.parentElement.children )
-    let v = arr[0].value
-    newTodoInput.setAttribute('value', v.trim())
-    newTodoInput.setAttribute('readonly', true)
-    newTodoItem.appendChild( newTodoInput )
-    addCheckIcon( newTodoItem )
-    addTrashIcon( newTodoItem )
-    let list = document.getElementById('todo-list')
-    list.appendChild( newTodoItem )
-
+todos.addEventListener("click", function (e) {
+  const item = e.target;
+  console.log({item});
+  if (item.classList.contains("fa-square")) {
+    item.parentElement.classList.add("completed");
+    item.classList.replace("fa-square", "fa-check-square");
+    return;
+  } 
+  if (item.classList.contains("fa-check-square")) {
+    item.parentElement.classList.remove("completed");
+    item.classList.replace("fa-check-square", "fa-square");
+    return;
+  }
+  if (item.classList.contains("fa-trash")) {
+    let b = confirm('Are you sure that you want to delete this todo?');
+    console.log({b});
+    if (b) {
+      item.parentElement.remove();
+    }
+  }
 });
 
 
-function addTrashIcon( item )
-{
-    let trashIcon = document.createElement('i')
-    trashIcon.innerHTML = '<i class="fas fa-trash"></i>'
-    item.appendChild( trashIcon )
-    
+function addTodo(text) {
+  // create li
+  const createdLi = document.createElement("li");
+  createdLi.classList.add("todo");
+  todos.appendChild(createdLi);
+  //add span
+  const span = document.createElement("span");
+  span.classList.add("todo-text");
+  span.innerText = text;
+  createdLi.appendChild(span);
+  //add comp icon
+  const compIcon = document.createElement("i"); // p input h1
+  compIcon.classList.add("fas", "fa-square");
+  createdLi.appendChild(compIcon);
+  //add trash icon
+  const trashIcon = document.createElement("i");
+  trashIcon.classList.add("fas", "fa-trash");
+  createdLi.appendChild(trashIcon);
+  //clear and focus input
+  clearAndFocus();
 }
 
-function addCheckIcon( item )
-{
-    let checkIcon = document.createElement('i')
-    checkIcon.innerHTML = '<i class="fas fa-check-square"></i>'
-    item.appendChild( checkIcon )
-    
+function clearAndFocus() {
+  selectedInput.value = "";
+  selectedInput.focus();
 }
-
